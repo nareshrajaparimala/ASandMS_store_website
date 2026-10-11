@@ -1,0 +1,58 @@
+import type { Testimonial } from "@/types";
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "1",
+    name: "Ramesh K.",
+    area: "Electronic City Phase 2",
+    rating: 5,
+    text: "My Samsung screen was cracked. Called on WhatsApp, technician arrived in 30 mins and replaced it right in my living room. Superb service!",
+    service: "Screen Replacement",
+    initials: "RK",
+  },
+  {
+    id: "2",
+    name: "Priya S.",
+    area: "Hosa Road",
+    rating: 5,
+    text: "Got my Jio SIM card activated at home — no need to stand in a queue. The person was very professional and the process was done in 15 minutes.",
+    service: "SIM Card Activation",
+    initials: "PS",
+  },
+  {
+    id: "3",
+    name: "Arun M.",
+    area: "Bommanahalli",
+    rating: 5,
+    text: "Laptop battery was dead. They came home, replaced it the same day. Honest pricing — told me the cost before doing anything. Will use again.",
+    service: "Laptop Battery Repair",
+    initials: "AM",
+  },
+  {
+    id: "4",
+    name: "Sunita R.",
+    area: "BTM Layout",
+    rating: 5,
+    text: "Ordered a tempered glass — they delivered and fitted it free! Phone looks brand new. Very happy with the quality.",
+    service: "Tempered Glass Fitting",
+    initials: "SR",
+  },
+  {
+    id: "5",
+    name: "Vikram T.",
+    area: "Chandapura",
+    rating: 5,
+    text: "Got a new Redmi on EMI, loan filled right here at home. Phone delivered within 1 hour. Never thought it could be this easy!",
+    service: "Mobile Loan",
+    initials: "VT",
+  },
+  {
+    id: "6",
+    name: "Meena D.",
+    area: "HSR Layout",
+    rating: 5,
+    text: "Payment only after the repair — that builds so much trust. My OnePlus charging port was fixed in under an hour. Highly recommended.",
+    service: "Charging Port Repair",
+    initials: "MD",
+  },
+];
