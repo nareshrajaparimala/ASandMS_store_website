@@ -1,5 +1,6 @@
 import { MessageCircle, Phone, MapPin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const contactItems = [
   {
@@ -36,7 +37,7 @@ export function ContactCTA() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
 
           {/* ── Left — Contact info ── */}
-          <div className="space-y-5 sm:space-y-7">
+          <ScrollReveal direction="left" className="space-y-5 sm:space-y-7">
             <div className="pill-white w-fit">Contact &amp; Location</div>
 
             <h2 className="font-display font-bold text-[1.7rem] sm:text-[2rem] md:text-[2.5rem] text-white leading-tight">
@@ -90,10 +91,10 @@ export function ContactCTA() {
                 </span>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* ── Right — Map + booking card ── */}
-          <div className="space-y-4 sm:space-y-5">
+          <ScrollReveal direction="right" delay={150} className="space-y-4 sm:space-y-5">
 
             {/* Google Map */}
             <div className="rounded-2xl overflow-hidden border border-white/10 h-56 sm:h-64">
@@ -132,7 +133,7 @@ export function ContactCTA() {
                 ))}
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

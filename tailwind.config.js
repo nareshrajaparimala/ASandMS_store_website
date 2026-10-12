@@ -53,7 +53,8 @@ module.exports = {
         "wa-btn":   "0 4px 20px rgba(37,211,102,.35)",
       },
       keyframes: {
-        marquee:          { "0%":{ transform:"translateX(0)" }, "100%":{ transform:"translateX(-50%)" } },
+        marquee:          { "0%":{ transform:"translateX(0)" },    "100%":{ transform:"translateX(-50%)"  } },
+        "marquee-reverse":{ "0%":{ transform:"translateX(-50%)" }, "100%":{ transform:"translateX(0)"    } },
         "fade-up":        { "0%":{ opacity:"0", transform:"translateY(20px)" }, "100%":{ opacity:"1", transform:"translateY(0)" } },
         float:            { "0%,100%":{ transform:"translateY(0)" }, "50%":{ transform:"translateY(-14px)" } },
         "float-slow":     { "0%,100%":{ transform:"translateY(0) scale(1)" }, "50%":{ transform:"translateY(-10px) scale(1.02)" } },
@@ -65,7 +66,8 @@ module.exports = {
         "accordion-up":   { from:{ height:"var(--radix-accordion-content-height)" }, to:{ height:"0" } },
       },
       animation: {
-        marquee:          "marquee 32s linear infinite",
+        marquee:          "marquee 36s linear infinite",
+        "marquee-reverse":"marquee-reverse 36s linear infinite",
         "fade-up":        "fade-up 0.5s ease-out forwards",
         float:            "float 4s ease-in-out infinite",
         "float-slow":     "float-slow 5s ease-in-out infinite",

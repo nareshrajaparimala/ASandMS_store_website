@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { services } from "@/data/services";
 import type { Service } from "@/types";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const badgeStyle: Record<string, string> = {
   saffron: "bg-gold/10    text-gold-dark  border border-gold/25",
@@ -21,10 +22,10 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services/${slug}`}
-      className="white-card group flex flex-col overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-card-lg"
+      className="white-card group flex flex-col h-full cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-card-lg"
     >
-      {/* ── Full-cover image ── */}
-      <div className="relative w-full h-48 overflow-hidden bg-gray-100">
+      {/* ── Full-cover image — rounded only at top to match card ── */}
+      <div className="relative w-full h-48 overflow-hidden rounded-t-2xl bg-gray-100 shrink-0">
         <Image
           src={`/images/services/${service.id}.png`}
           alt={service.shortTitle}
@@ -93,7 +94,7 @@ export function ServicesGrid() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <ScrollReveal className="text-center mb-14">
           <div className="pill-gold mx-auto w-fit mb-4">All Services</div>
           <h2 className="font-display font-bold text-[2rem] md:text-[2.5rem] text-ink mb-3">
             Everything — At Your Door
@@ -102,11 +103,15 @@ export function ServicesGrid() {
             From a cracked screen to a new SIM card — we bring every service to your home
             across South Bengaluru within 20km.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {services.map((s) => <ServiceCard key={s.id} service={s} />)}
+          {services.map((s, i) => (
+            <ScrollReveal key={s.id} delay={i * 80} direction="up" className="h-full">
+              <ServiceCard service={s} />
+            </ScrollReveal>
+          ))}
         </div>
 
         {/* Bottom nudge */}

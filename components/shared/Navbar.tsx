@@ -1,17 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Services",      href: "#services"     },
-  { label: "How It Works",  href: "#how-it-works"  },
-  { label: "Why Us",        href: "#why-us"        },
-  { label: "Reviews",       href: "#reviews"       },
-  { label: "FAQ",           href: "#faq"           },
-  { label: "Contact",       href: "#contact"       },
+  { label: "Services",     href: "#services"        },
+  { label: "How It Works", href: "#how-it-works"    },
+  { label: "Why Us",       href: "#why-us"          },
+  { label: "Sell Phone",   href: "/sell-phone"      },
+  { label: "Reviews",      href: "#reviews"         },
+  { label: "Contact",      href: "#contact"         },
 ];
 
 export function Navbar() {
@@ -32,13 +33,18 @@ export function Navbar() {
         : "bg-white/95 backdrop-blur-sm"
     )}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-[64px] items-center justify-between gap-6">
+        <div className="flex h-[76px] items-center justify-between gap-6">
 
           {/* Logo */}
           <a href="/" className="flex items-center shrink-0 select-none">
-            <span className="font-display font-bold text-[1.3rem] text-ink">AS</span>
-            <span className="font-display font-bold text-[1.3rem] text-gold mx-1">♭</span>
-            <span className="font-display font-bold text-[1.3rem] text-ink">MS</span>
+            <Image
+              src="/logo_main_as_and_ms.png"
+              alt="AS & MS Mobile Repair"
+              width={180}
+              height={56}
+              className="h-14 w-auto object-contain"
+              priority
+            />
           </a>
 
           {/* Desktop Nav */}

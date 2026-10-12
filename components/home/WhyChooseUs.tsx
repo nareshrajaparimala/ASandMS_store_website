@@ -1,6 +1,7 @@
 import React from "react";
 import { Home, IndianRupee, ShieldCheck, Clock, MapPin, Wrench, Eye, BadgeCheck } from "lucide-react";
 import { whyItems } from "@/data/why";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const iconMap: Record<string, React.ElementType> = {
   Home, IndianRupee, ShieldCheck, Clock, MapPin, Wrench, Eye, BadgeCheck,
@@ -30,7 +31,7 @@ export function WhyChooseUs() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <ScrollReveal className="text-center mb-14">
           <div className="pill-gold mx-auto w-fit mb-4">Why AS ♭ MS</div>
           <h2 className="font-display font-bold text-[2rem] md:text-[2.5rem] text-white mb-3">
             The Better Way to Repair
@@ -38,15 +39,15 @@ export function WhyChooseUs() {
           <p className="text-white/55 max-w-lg mx-auto text-[15px] leading-relaxed">
             No queues. No travel. No advance payment. Just fast, honest repair at your door.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Feature grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {whyItems.map((item, i) => {
             const Icon = iconMap[item.icon] ?? Home;
             return (
+              <ScrollReveal key={item.title} delay={i * 80} direction="up">
               <div
-                key={item.title}
                 className="group flex gap-4 p-6 bg-card-black border border-white/[0.07] rounded-2xl hover:border-gold/25 transition-all"
               >
                 <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${iconBgs[i % 3]}`}>
@@ -59,11 +60,13 @@ export function WhyChooseUs() {
                   <p className="text-[13px] text-white/50 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
+              </ScrollReveal>
             );
           })}
         </div>
 
         {/* Pay-after highlight */}
+        <ScrollReveal delay={300}>
         <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 p-6 bg-ok-green/[0.05] border border-ok-green/20 rounded-2xl max-w-2xl mx-auto">
           <ShieldCheck className="h-8 w-8 text-ok-green shrink-0" />
           <p className="text-[14px] text-white/60 leading-relaxed text-center sm:text-left">
@@ -71,6 +74,7 @@ export function WhyChooseUs() {
             and you are satisfied. Exact price told before work starts — no surprises, no hidden charges.
           </p>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { MessageCircle, Home, CheckCircle2, Wrench } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const steps = [
   {
@@ -44,7 +45,7 @@ export function HowItWorks() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <ScrollReveal className="text-center mb-14">
           <div className="pill-black mx-auto w-fit mb-4">Process</div>
           <h2 className="font-display font-bold text-[2rem] md:text-[2.5rem] text-page-black mb-3">
             How It Works
@@ -52,14 +53,15 @@ export function HowItWorks() {
           <p className="text-[#3a2800] max-w-md mx-auto text-[15px] leading-relaxed opacity-75">
             Four steps. No drop-offs. No queues. No advance.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Steps grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
-              <div key={step.num} className="white-card white-card-hover group relative p-6 flex flex-col gap-5">
+              <ScrollReveal key={step.num} delay={i * 120} direction="up">
+              <div className="white-card white-card-hover group relative p-6 flex flex-col gap-5 h-full">
 
                 {/* Connector arrow (desktop) */}
                 {i < steps.length - 1 && (
@@ -87,6 +89,7 @@ export function HowItWorks() {
                   {step.time}
                 </div>
               </div>
+              </ScrollReveal>
             );
           })}
         </div>

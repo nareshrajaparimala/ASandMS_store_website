@@ -1,14 +1,16 @@
+import Image from "next/image";
 import { Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 const serviceLinks = [
-  { label: "Mobile Repair",           href: "#services" },
-  { label: "Laptop Repair",           href: "#services" },
-  { label: "Free Pickup & Delivery",  href: "#services" },
-  { label: "Mobile Accessories",      href: "#services" },
-  { label: "Tempered Glass Fitting",  href: "#services" },
-  { label: "SIM Cards at Home",       href: "#services" },
-  { label: "Mobile Loans / EMI",      href: "#services" },
+  { label: "Mobile Repair",           href: "/services/mobile-repair"   },
+  { label: "Laptop Repair",           href: "/services/laptop-repair"   },
+  { label: "Free Pickup & Delivery",  href: "/services/free-pickup"     },
+  { label: "Mobile Accessories",      href: "/services/accessories"     },
+  { label: "Tempered Glass Fitting",  href: "/services/tempered-glass"  },
+  { label: "SIM Cards at Home",       href: "/services/sim-cards"       },
+  { label: "Mobile Loans / EMI",      href: "/services/mobile-loans"    },
+  { label: "Sell Your Phone",         href: "/sell-phone"               },
 ];
 
 const areaLinks = [
@@ -26,9 +28,13 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <span className="font-display font-bold text-xl text-white">AS</span>
-              <span className="font-display font-bold text-xl text-gold mx-1">♭</span>
-              <span className="font-display font-bold text-xl text-white">MS</span>
+              <Image
+                src="/logo_main_as_and_ms.png"
+                alt="AS & MS Mobile Repair"
+                width={110}
+                height={36}
+                className="h-9 w-auto object-contain brightness-0 invert"
+              />
             </div>
             <p className="text-sm text-white/50 leading-relaxed">
               {siteConfig.fullName}. Doorstep mobile and laptop repair across South Bengaluru.

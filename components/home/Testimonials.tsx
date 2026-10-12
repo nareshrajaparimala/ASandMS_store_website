@@ -1,5 +1,6 @@
 import { Star, Quote } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function Testimonials() {
   return (
@@ -7,7 +8,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <ScrollReveal className="text-center mb-14">
           <div className="pill-gold mx-auto w-fit mb-4">
             <Star className="h-3 w-3 fill-gold" />
             Customer Reviews
@@ -22,12 +23,13 @@ export function Testimonials() {
             <span className="font-display font-bold text-ink">4.4</span>
             <span className="text-ink-light text-sm">· 31 verified reviews</span>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {testimonials.map((t) => (
-            <article key={t.id} className="white-card white-card-hover group flex flex-col gap-4 p-6">
+          {testimonials.map((t, i) => (
+            <ScrollReveal key={t.id} delay={i * 100} direction="up">
+            <article className="white-card white-card-hover group flex flex-col gap-4 p-6 h-full">
 
               {/* Stars + quote icon */}
               <div className="flex items-center justify-between">
@@ -58,6 +60,7 @@ export function Testimonials() {
                 </span>
               </div>
             </article>
+            </ScrollReveal>
           ))}
         </div>
       </div>

@@ -6,6 +6,7 @@ import { CheckCircle2, ArrowLeft, MessageCircle, Shield, ShieldCheck, ChevronDow
 import { services } from "@/data/services";
 import { siteConfig } from "@/config/site";
 import { BookingForm } from "@/components/services/BookingForm";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function generateStaticParams() {
   return services.filter((s) => s.slug).map((s) => ({ slug: s.slug }));
@@ -82,7 +83,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 {[
                   { icon: CheckCircle2, label: "Pay After Repair", cls: "text-ok-green"   },
                   { icon: Shield,       label: "6-Month Warranty", cls: "text-brand-blue" },
-                  { icon: ShieldCheck,  label: "Free Pickup Zone", cls: "text-gold"       },
+                  { icon: ShieldCheck,  label: "₹15/km Pickup & Drop", cls: "text-gold"   },
                 ].map(({ icon: Icon, label, cls }) => (
                   <div key={label} className="flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-3 py-1.5 text-[12px] text-ink-mid">
                     <Icon className={`h-3.5 w-3.5 shrink-0 ${cls}`} />
@@ -90,6 +91,30 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   </div>
                 ))}
               </div>
+
+              {/* Android & iOS — mobile repair only */}
+              {service.id === "mobile-repair" && (
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-[11px] text-ink-light font-medium uppercase tracking-wider">We repair</span>
+                  <div className="flex items-center gap-2">
+                    {/* Android */}
+                    <div className="flex items-center gap-2 bg-ink text-white rounded-full px-4 py-2">
+                      <svg className="h-5 w-5 shrink-0 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M17.523 15.341c-.31 0-.562-.252-.562-.563s.252-.562.562-.562.563.252.563.562-.252.563-.563.563m-11.046 0c-.31 0-.562-.252-.562-.563s.252-.562.562-.562.563.252.563.562-.252.563-.563.563M17.684 6.696l1.606-2.78a.334.334 0 0 0-.122-.456.334.334 0 0 0-.456.122L17.1 6.37a10.254 10.254 0 0 0-4.1-.84 10.254 10.254 0 0 0-4.1.84L7.288 3.582a.334.334 0 0 0-.456-.122.334.334 0 0 0-.122.456l1.606 2.78C5.573 7.986 3.75 10.266 3.75 13h16.5c0-2.734-1.823-5.014-4.566-6.304"/>
+                      </svg>
+                      <span className="text-[13px] font-semibold font-display">Android</span>
+                    </div>
+                    {/* iOS */}
+                    <div className="flex items-center gap-2 bg-ink text-white rounded-full px-4 py-2">
+                      <svg className="h-5 w-5 shrink-0 fill-white" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/>
+                      </svg>
+                      <span className="text-[13px] font-semibold font-display">iOS / iPhone</span>
+                    </div>
+                  </div>
+                  <span className="text-[12px] text-ink-mid font-medium">Samsung · OnePlus · Redmi · Oppo · Vivo · iPhone &amp; more</span>
+                </div>
+              )}
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-3">
@@ -190,6 +215,48 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      {/* ── Sub-Services ── */}
+      {service.subServices && service.subServices.length > 0 && (
+        <section className="bg-white py-12 sm:py-16">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <h2 className="font-display font-bold text-[1.4rem] sm:text-[1.6rem] text-ink mb-2">
+                All {service.shortTitle} Services
+              </h2>
+              <p className="text-ink-mid text-[14px] mb-8">Everything we fix and deliver for {service.shortTitle.toLowerCase()} — at your doorstep.</p>
+            </ScrollReveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {service.subServices.map((sub, i) => (
+                <ScrollReveal key={sub.name} delay={i * 60} direction="up">
+                  <div className="group flex items-start gap-4 p-4 sm:p-5 rounded-xl border border-gray-100 hover:border-gold/30 bg-white hover:bg-gold/[0.02] transition-all">
+                    <span className="text-2xl shrink-0 mt-0.5">{sub.icon}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="font-display font-semibold text-ink text-[14px] group-hover:text-gold transition-colors">{sub.name}</h3>
+                        {sub.price && (
+                          <span className="text-[11px] font-semibold text-gold bg-gold/10 border border-gold/20 px-2 py-0.5 rounded-full whitespace-nowrap shrink-0">{sub.price}</span>
+                        )}
+                      </div>
+                      <p className="text-ink-mid text-[12.5px] leading-relaxed mt-0.5">{sub.desc}</p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+            <ScrollReveal delay={200} className="mt-8 text-center">
+              <a
+                href={`${siteConfig.whatsapp}?text=${encodeURIComponent(service.ctaMessage)}`}
+                target="_blank" rel="noopener noreferrer"
+                className="btn-wa inline-flex px-6 py-3 text-[14px]"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Book {service.shortTitle} Now
+              </a>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ── Booking Form ── */}
       <section className="bg-white py-12 sm:py-16">

@@ -3,6 +3,13 @@ export type ServiceFAQ = {
   a: string;
 };
 
+export type SubService = {
+  name: string;
+  desc: string;
+  icon: string;
+  price?: string;
+};
+
 export type Service = {
   id: string;
   title: string;
@@ -18,6 +25,7 @@ export type Service = {
   slug?: string;
   heroTagline?: string;
   fullDescription?: string;
+  subServices?: SubService[];
   faqs?: ServiceFAQ[];
   metaTitle?: string;
   metaDescription?: string;
