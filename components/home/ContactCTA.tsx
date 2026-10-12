@@ -1,6 +1,10 @@
-import { MessageCircle, Phone, MapPin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { MessageCircle, Phone, MapPin, Clock, ArrowRight, CheckCircle2, Star } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+
+const REVIEW_URL  = "https://maps.google.com/?cid=10149034131434432022";
+const REVIEW_QR   = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(REVIEW_URL)}&bgcolor=FFFFFF&color=1a1a1a&margin=12&format=png`;
 
 const contactItems = [
   {
@@ -133,6 +137,44 @@ export function ContactCTA() {
                 ))}
               </div>
             </div>
+
+            {/* ── Google Review QR card ── */}
+            <a
+              href={REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group white-card p-5 flex items-center gap-5 hover:shadow-lg hover:border-gold/40 transition-all"
+            >
+              {/* QR code */}
+              <div className="shrink-0 rounded-xl overflow-hidden border border-gray-200 group-hover:border-gold/40 transition-colors">
+                <Image
+                  src={REVIEW_QR}
+                  alt="Scan to write a Google Review for AS & MS"
+                  width={80}
+                  height={80}
+                  unoptimized
+                />
+              </div>
+
+              {/* Text */}
+              <div className="flex-1 min-w-0">
+                <div className="flex gap-0.5 mb-1.5">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-[#FBBF24] text-[#FBBF24]" />
+                  ))}
+                </div>
+                <p className="font-display font-bold text-ink text-[0.9rem] leading-snug">
+                  Happy with the service?
+                </p>
+                <p className="text-ink-mid text-[12px] mt-0.5 leading-snug">
+                  Scan QR or tap here to leave us a Google Review — it means the world to us.
+                </p>
+                <p className="text-[11px] text-gold font-semibold mt-1.5 group-hover:underline">
+                  Write a Review →
+                </p>
+              </div>
+            </a>
+
           </ScrollReveal>
         </div>
       </div>

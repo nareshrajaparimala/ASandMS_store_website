@@ -1,5 +1,8 @@
 import Image from "next/image";
-import { Phone, MessageCircle, MapPin, Clock, Linkedin } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Clock, Linkedin, Star } from "lucide-react";
+
+const REVIEW_URL = "https://maps.google.com/?cid=10149034131434432022";
+const REVIEW_QR  = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(REVIEW_URL)}&bgcolor=FFFFFF&color=1a1a1a&margin=10&format=png`;
 import { siteConfig } from "@/config/site";
 
 const serviceLinks = [
@@ -145,6 +148,35 @@ export function Footer() {
                 <span>Instagram <span className="text-white/20">(coming soon)</span></span>
               </div>
             </div>
+
+            {/* Google Review QR */}
+            <a
+              href={REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-gold/30 rounded-2xl p-3 transition-all"
+            >
+              <div className="shrink-0 rounded-lg overflow-hidden bg-white p-0.5">
+                <Image
+                  src={REVIEW_QR}
+                  alt="Scan to write a Google Review"
+                  width={52}
+                  height={52}
+                  unoptimized
+                />
+              </div>
+              <div>
+                <div className="flex gap-0.5 mb-1">
+                  {[1,2,3,4,5].map(i => (
+                    <Star key={i} className="h-3 w-3 fill-[#FBBF24] text-[#FBBF24]" />
+                  ))}
+                </div>
+                <p className="text-[11px] text-white/60 font-semibold leading-snug group-hover:text-white transition-colors">
+                  Scan to Rate Us on Google
+                </p>
+                <p className="text-[10px] text-white/30 mt-0.5">4.4★ · 31 Reviews</p>
+              </div>
+            </a>
 
             {/* WhatsApp Book CTA */}
             <a
