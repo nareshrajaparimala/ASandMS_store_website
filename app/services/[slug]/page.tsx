@@ -20,13 +20,38 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug || s.id === slug);
   if (!service) return {};
+
+  const pageUrl = `${siteConfig.url}/services/${slug}`;
+  const title   = service.metaTitle   ?? `${service.title} in South Bengaluru | AS & MS`;
+  const desc    = service.metaDescription ?? service.description;
+
   return {
-    title: service.metaTitle ?? `${service.title} | AS MS`,
-    description: service.metaDescription ?? service.description,
+    title,
+    description: desc,
+    alternates: { canonical: pageUrl },
     openGraph: {
-      title: service.metaTitle ?? service.title,
-      description: service.metaDescription ?? service.description,
+      type: "website",
+      locale: "en_IN",
+      siteName: siteConfig.fullName,
+      url: pageUrl,
+      title,
+      description: desc,
+      images: [
+        {
+          url: siteConfig.ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} — AS & MS, South Bengaluru`,
+        },
+      ],
     },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: desc,
+      images: [siteConfig.ogImage],
+    },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -42,10 +67,72 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = services.find((s) => s.slug === slug || s.id === slug);
   if (!service) notFound();
 
-  const waUrl = `${siteConfig.whatsapp}?text=${encodeURIComponent(service.ctaMessage)}`;
+  const waUrl   = `${siteConfig.whatsapp}?text=${encodeURIComponent(service.ctaMessage)}`;
+  const pageUrl = `${siteConfig.url}/services/${slug}`;
+
+  /* ── JSON-LD: Service ── */
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${pageUrl}/#service`,
+    name: service.title,
+    description: service.fullDescription ?? service.description,
+    url: pageUrl,
+    provider: {
+      "@type": "LocalBusiness",
+      "@id": `${siteConfig.url}/#business`,
+      name: siteConfig.fullName,
+    },
+    areaServed: siteConfig.serviceAreas.map((area) => ({
+      "@type": "City",
+      name: `${area}, Bengaluru`,
+    })),
+    serviceType: service.title,
+    termsOfService: `${siteConfig.url}/#pricing`,
+    hasOfferCatalog: service.features?.length
+      ? {
+          "@type": "OfferCatalog",
+          name: `${service.title} — What We Cover`,
+          itemListElement: service.features.map((f, i) => ({
+            "@type": "Offer",
+            position: i + 1,
+            itemOffered: { "@type": "Service", name: f },
+          })),
+        }
+      : undefined,
+  };
+
+  /* ── JSON-LD: BreadcrumbList ── */
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home",     item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteConfig.url}/#services` },
+      { "@type": "ListItem", position: 3, name: service.title, item: pageUrl },
+    ],
+  };
+
+  /* ── JSON-LD: FAQPage (from service.faqs) ── */
+  const faqSchema = service.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: service.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       {/* ── Hero ── */}
       <section className="relative bg-white pt-20 pb-10 lg:pb-0 overflow-hidden lg:min-h-[92vh] flex flex-col justify-center">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">

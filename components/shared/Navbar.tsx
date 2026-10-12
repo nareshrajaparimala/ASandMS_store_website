@@ -5,14 +5,15 @@ import Image from "next/image";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { OfferBanner } from "@/components/home/OfferBanner";
 
 const navLinks = [
-  { label: "Services",     href: "#services"        },
-  { label: "How It Works", href: "#how-it-works"    },
-  { label: "Why Us",       href: "#why-us"          },
+  { label: "Services",     href: "/#services"       },
+  { label: "How It Works", href: "/#how-it-works"   },
+  { label: "About Us",     href: "/about"            },
   { label: "Sell Phone",   href: "/sell-phone"      },
-  { label: "Reviews",      href: "#reviews"         },
-  { label: "Contact",      href: "#contact"         },
+  { label: "Reviews",      href: "/#reviews"        },
+  { label: "Contact",      href: "/#contact"        },
 ];
 
 export function Navbar() {
@@ -32,6 +33,7 @@ export function Navbar() {
         ? "bg-white shadow-[0_2px_20px_rgba(0,0,0,.09)] border-b border-gray-100"
         : "bg-white/95 backdrop-blur-sm"
     )}>
+      <OfferBanner />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-[76px] items-center justify-between gap-6">
 
@@ -40,9 +42,9 @@ export function Navbar() {
             <Image
               src="/logo_main_as_and_ms.png"
               alt="AS & MS Mobile Repair"
-              width={180}
-              height={56}
-              className="h-14 w-auto object-contain"
+              width={220}
+              height={68}
+              className="h-16 w-auto object-contain"
               priority
             />
           </a>

@@ -7,7 +7,7 @@ const comparisons = [
   { feature: "Pay only after repair",         asms: true,  shop: false },
   { feature: "6-month warranty",              asms: true,  shop: false },
   { feature: "Same-day repair",               asms: true,  shop: "Sometimes" },
-  { feature: "Free pickup & delivery",        asms: true,  shop: false },
+  { feature: "Pickup & delivery",             asms: true,  shop: false },
   { feature: "Pre-repair price estimate",     asms: true,  shop: false },
   { feature: "WhatsApp booking",              asms: true,  shop: false },
   { feature: "No travel or waiting time",     asms: true,  shop: false },

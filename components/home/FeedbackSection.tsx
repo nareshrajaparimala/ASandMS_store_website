@@ -8,7 +8,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 const serviceOptions = [
   "Mobile Repair",
   "Laptop Repair",
-  "Free Pickup & Delivery",
+  "Pickup & Delivery",
   "Mobile Accessories",
   "Tempered Glass",
   "SIM Card",

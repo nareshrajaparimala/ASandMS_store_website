@@ -30,7 +30,7 @@ const laptopSubServices: SubService[] = [
 const pickupSubServices: SubService[] = [
   { name: "Same-Day Pickup",          desc: "Device collected from your address — usually within 1–2 hours",          icon: "🚗",  price: "Free"  },
   { name: "Same-Day Return",          desc: "Repaired device delivered back the same day in most cases",              icon: "📦",  price: "Free"  },
-  { name: "20km Free Zone",           desc: "Free pickup & delivery within 20km across South Bengaluru",             icon: "📍",  price: "Free"  },
+  { name: "20km Zone",                desc: "Pickup & delivery within 20km across South Bengaluru",                  icon: "📍",  price: "Available"  },
   { name: "WhatsApp Tracking",        desc: "Live updates on repair status — from collection to delivery",           icon: "💬",  price: "Free"  },
   { name: "Secure Handling",          desc: "Your device is handled carefully and a receipt is provided at pickup",   icon: "🔒",  price: "Free"  },
   { name: "All Devices Accepted",     desc: "Mobile phones, tablets, laptops, smartwatches — all accepted",          icon: "📱",  price: "Free"  },
@@ -162,23 +162,23 @@ export const services: Service[] = [
   {
     id: "free-pickup",
     slug: "free-pickup",
-    title: "Free Pickup & Delivery",
-    shortTitle: "Free Pickup",
+    title: "Pickup & Delivery",
+    shortTitle: "Pickup",
     shortDesc: "We collect, fix, and return — you relax.",
     description:
-      "Can't wait at home? No problem. We pick up your device, repair it at our shop, and deliver it back — all for free within our 20km service zone.",
+      "Can't wait at home? No problem. We pick up your device, repair it at our shop, and deliver it back within our 20km service zone.",
     icon: "Truck",
     image: "/images/services/pickup.webp",
-    features: ["Free Collection", "Free Delivery", "20km Zone", "Same-Day Return"],
+    features: ["Device Collection", "Home Delivery", "20km Zone", "Same-Day Return"],
     subServices: pickupSubServices,
-    ctaMessage: "Hi, I need free pickup and delivery for repair",
-    heroTagline: "Can't Wait at Home? We Collect, Fix & Return for Free",
+    ctaMessage: "Hi, I need pickup and delivery for repair",
+    heroTagline: "Can't Wait at Home? We Collect, Fix & Return",
     fullDescription:
-      "Our free pickup and delivery service is perfect when you can't wait at home. Simply WhatsApp us, and our technician collects your device from your address, repairs it at our shop in GK Layout, and delivers it back — all at no extra charge within our 20km service zone. Most repairs are returned the same day.",
+      "Our pickup and delivery service is perfect when you can't step out. Simply WhatsApp us, and our technician collects your device from your address, repairs it at our shop in GK Layout, and delivers it back within our 20km service zone. Most repairs are returned the same day.",
     faqs: [
       {
-        q: "Is the pickup and delivery really free?",
-        a: "Yes — both collection and delivery are completely free within our 20km South Bengaluru service zone.",
+        q: "How does the pickup and delivery work?",
+        a: "Our technician collects your device from your address, repairs it at our shop in GK Layout, and delivers it back — within our 20km South Bengaluru service zone.",
       },
       {
         q: "How long will my device be away?",
@@ -193,9 +193,9 @@ export const services: Service[] = [
         a: "We cover all of South Bengaluru within 20km — Electronic City, Hosa Road, HSR Layout, BTM Layout, JP Nagar, Sarjapur Road and more.",
       },
     ],
-    metaTitle: "Free Device Pickup & Delivery — South Bengaluru | AS MS",
+    metaTitle: "Device Pickup & Delivery — South Bengaluru | AS MS",
     metaDescription:
-      "Free mobile and laptop pickup and delivery for repair in South Bengaluru. We collect, fix, and return your device. Same-day turnaround within 20km.",
+      "Mobile and laptop pickup and delivery for repair in South Bengaluru. We collect, fix, and return your device. Same-day turnaround within 20km.",
   },
   {
     id: "accessories",

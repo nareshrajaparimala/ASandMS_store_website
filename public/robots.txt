@@ -1,4 +1,112 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# robots.txt — Abhishek Stores and Mobile Shop (AS & MS)
+# Site: https://asandms.in
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Default: allow all crawlers ───────────────────────────────────────────────
 User-agent: *
 Allow: /
 
+# Allow Next.js static assets (JS, CSS, images) — required for JS rendering
+Allow: /_next/static/
+Allow: /_next/image/
+
+# Block non-public paths
+Disallow: /api/
+Disallow: /_next/webpack-hmr
+Disallow: /404
+Disallow: /500
+
+# ── Google ────────────────────────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Allow: /_next/static/
+Allow: /_next/image/
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow Google to use content for AI features (AI Overviews, SGE)
+User-agent: Google-Extended
+Allow: /
+
+# ── Bing / Microsoft ──────────────────────────────────────────────────────────
+User-agent: bingbot
+Allow: /
+Crawl-delay: 3
+
+User-agent: msnbot
+Allow: /
+
+User-agent: adidxbot
+Allow: /
+
+# ── OpenAI / ChatGPT ──────────────────────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# ── Perplexity ────────────────────────────────────────────────────────────────
+User-agent: PerplexityBot
+Allow: /
+
+# ── Anthropic / Claude ────────────────────────────────────────────────────────
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# ── Google Gemini / Vertex AI ─────────────────────────────────────────────────
+User-agent: Googlebot
+Allow: /
+
+# ── Meta AI ───────────────────────────────────────────────────────────────────
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# ── Apple ─────────────────────────────────────────────────────────────────────
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ── Other major search engines ────────────────────────────────────────────────
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+# ── Common AI training crawlers ───────────────────────────────────────────────
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Sitemaps
+# ─────────────────────────────────────────────────────────────────────────────
 Sitemap: https://asandms.in/sitemap.xml

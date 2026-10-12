@@ -1,11 +1,40 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { MessageCircle, Phone, CheckCircle2, IndianRupee, Smartphone, ShieldCheck, Zap, RefreshCw, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+const pageUrl = `${siteConfig.url}/sell-phone`;
+
 export const metadata: Metadata = {
-  title: "Sell Your Dead or Old Phone — Best Price | AS & MS",
-  description: "Sell your dead, damaged, or old mobile phone at the best price in South Bengaluru. Free assessment, instant payment, all brands accepted. WhatsApp us today.",
+  title: "Sell Your Dead or Old Phone — Best Price in South Bengaluru | AS & MS",
+  description:
+    "Sell your dead, damaged, or old mobile phone at the best price in South Bengaluru. Instant UPI/cash payment, all brands accepted, doorstep pickup. WhatsApp 9606246512.",
+  alternates: { canonical: pageUrl },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: siteConfig.fullName,
+    url: pageUrl,
+    title: "Sell Your Dead or Old Phone — Best Price | AS & MS",
+    description:
+      "Get the best price for your old, cracked or dead phone in South Bengaluru. Instant payment. All brands. WhatsApp us your phone photos for a quote.",
+    images: [
+      {
+        url: `${siteConfig.url}/sell-phones-damaged.png`,
+        width: 960,
+        height: 720,
+        alt: "Sell damaged or dead phones — AS & MS South Bengaluru",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sell Your Dead or Old Phone | AS & MS",
+    description: "Instant cash/UPI payment for any phone condition. All brands. South Bengaluru.",
+    images: [`${siteConfig.url}/sell-phones-damaged.png`],
+  },
+  robots: { index: true, follow: true },
 };
 
 const acceptedConditions = [
@@ -57,10 +86,44 @@ const whyUs = [
   { icon: RefreshCw,    label: "Upgrade Benefit",         desc: "Selling to buy a new phone? We offer upgrade deals on our EMI loans." },
 ];
 
+const sellServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Sell Your Phone — Best Price",
+  description:
+    "We buy dead, damaged, cracked, and old mobile phones of all brands at the best market price in South Bengaluru. Instant UPI or cash payment. Doorstep collection available.",
+  url: pageUrl,
+  provider: {
+    "@type": "LocalBusiness",
+    "@id": `${siteConfig.url}/#business`,
+    name: siteConfig.fullName,
+  },
+  areaServed: { "@type": "City", name: "Bengaluru, Karnataka, India" },
+  serviceType: "Phone Buyback",
+  offers: {
+    "@type": "Offer",
+    description: "Best price buyback for dead, damaged, or old mobile phones",
+    priceCurrency: "INR",
+    availability: "https://schema.org/InStock",
+    seller: { "@type": "LocalBusiness", name: siteConfig.fullName },
+  },
+};
+
+const sellBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home",       item: siteConfig.url },
+    { "@type": "ListItem", position: 2, name: "Sell Phone", item: pageUrl },
+  ],
+};
+
 export default function SellPhonePage() {
   const waMsg = encodeURIComponent("Hi, I want to sell my phone. Let me share the details.");
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sellServiceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sellBreadcrumbSchema) }} />
       {/* ── Hero ── */}
       <section className="relative bg-white pt-28 pb-16 overflow-hidden">
         <div className="pointer-events-none absolute inset-0">
@@ -68,35 +131,57 @@ export default function SellPhonePage() {
           <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-ok-green/[0.05] blur-[100px]" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="pill-gold w-fit mb-5">Sell Your Phone</div>
-            <h1 className="font-display font-bold text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem] leading-[1.1] tracking-tight text-ink mb-5">
-              Sell Your Dead or Old Phone —{" "}
-              <span className="text-gold">Get the Best Price</span>
-            </h1>
-            <p className="text-ink-mid text-[1rem] sm:text-[1.05rem] leading-relaxed max-w-[560px] mb-8">
-              Don't let a broken or unused phone gather dust. We buy dead, damaged, and old phones of all brands at the best market price — with instant payment and free doorstep pickup.
-            </p>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {["All Brands Accepted", "Instant Payment", "Free Doorstep Pickup", "Data Wiped Securely"].map((t) => (
-                <div key={t} className="flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-3 py-1.5 text-[12.5px] text-ink-mid">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-ok-green shrink-0" />
-                  {t}
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+
+            {/* Left — text */}
+            <div className="flex-1 max-w-xl">
+              <div className="pill-gold w-fit mb-5">Sell Your Phone</div>
+              <h1 className="font-display font-bold text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem] leading-[1.1] tracking-tight text-ink mb-5">
+                Sell Your Dead or Old Phone —{" "}
+                <span className="text-gold">Get the Best Price</span>
+              </h1>
+              <p className="text-ink-mid text-[1rem] sm:text-[1.05rem] leading-relaxed mb-8">
+                Don't let a broken or unused phone gather dust. We buy dead, damaged, and old phones of all brands at the best market price — with instant payment and doorstep pickup.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {["All Brands Accepted", "Instant Payment", "Doorstep Pickup", "Data Wiped Securely"].map((t) => (
+                  <div key={t} className="flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-full px-3 py-1.5 text-[12.5px] text-ink-mid">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-ok-green shrink-0" />
+                    {t}
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a href={`${siteConfig.whatsapp}?text=${waMsg}`} target="_blank" rel="noopener noreferrer"
+                  className="btn-wa px-7 py-4 text-[15px] justify-center">
+                  <MessageCircle className="h-5 w-5" />
+                  Send Phone Photos on WhatsApp
+                </a>
+                <a href={siteConfig.phoneHref}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-4 text-[14px] font-display font-semibold text-ink border border-gray-300 rounded-[10px] hover:border-gold hover:text-gold transition-all">
+                  <Phone className="h-5 w-5 text-brand-blue" />
+                  Call {siteConfig.phone}
+                </a>
+              </div>
+            </div>
+
+            {/* Right — image */}
+            <div className="flex-shrink-0 w-full lg:w-[480px]">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/sell-phones-damaged.png"
+                  alt="Damaged phones we buy — cracked screens, dead phones, water damaged"
+                  width={960}
+                  height={720}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent px-5 py-4">
+                  <p className="text-white font-display font-semibold text-[14px]">We buy all conditions — cracked, dead, water-damaged</p>
                 </div>
-              ))}
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a href={`${siteConfig.whatsapp}?text=${waMsg}`} target="_blank" rel="noopener noreferrer"
-                className="btn-wa px-7 py-4 text-[15px] justify-center">
-                <MessageCircle className="h-5 w-5" />
-                Send Phone Photos on WhatsApp
-              </a>
-              <a href={siteConfig.phoneHref}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 text-[14px] font-display font-semibold text-ink border border-gray-300 rounded-[10px] hover:border-gold hover:text-gold transition-all">
-                <Phone className="h-5 w-5 text-brand-blue" />
-                Call {siteConfig.phone}
-              </a>
-            </div>
+
           </div>
         </div>
       </section>
@@ -148,6 +233,24 @@ export default function SellPhonePage() {
             ))}
           </div>
 
+          {/* Payment image */}
+          <ScrollReveal delay={150} className="mb-6">
+            <div className="relative rounded-2xl overflow-hidden h-52 sm:h-64 w-full">
+              <Image
+                src="/sell-phone-payment.png"
+                alt="Sell phone for cash — instant UPI or cash payment"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/55 to-transparent flex items-center px-7">
+                <div>
+                  <p className="text-white font-display font-bold text-[1.2rem] sm:text-[1.4rem] leading-snug mb-1">Instant Payment</p>
+                  <p className="text-white/75 text-[13px]">Cash · UPI · Bank Transfer — on the spot</p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
           {/* Brand pills */}
           <ScrollReveal delay={200}>
             <div className="bg-page-cream rounded-2xl p-6">
@@ -169,7 +272,13 @@ export default function SellPhonePage() {
 
       {/* ── Why Sell With Us ── */}
       <section className="bg-page-black py-16 md:py-20 relative overflow-hidden">
-        <div className="blob-gold w-[400px] h-[400px] -top-20 -right-20 opacity-10" />
+        <Image
+          src="/sell-phone-bg.png"
+          alt=""
+          fill
+          className="object-cover object-center opacity-30"
+          aria-hidden="true"
+        />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
             <div className="pill-gold mx-auto w-fit mb-4">Why Choose Us</div>
