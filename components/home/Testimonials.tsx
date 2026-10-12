@@ -1,4 +1,4 @@
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ExternalLink } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -23,6 +23,24 @@ export function Testimonials() {
             <span className="font-display font-bold text-ink">4.4</span>
             <span className="text-ink-light text-sm">· 31 verified reviews</span>
           </div>
+        </ScrollReveal>
+
+        {/* Google Review CTA */}
+        <ScrollReveal className="flex justify-center mb-8">
+          <a
+            href="https://maps.google.com/?cid=10149034131434432022"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 bg-white border border-gray-200 hover:border-gold hover:shadow-md rounded-full px-5 py-2.5 transition-all"
+          >
+            <div className="flex gap-0.5">
+              {[1,2,3,4,5].map(i => <Star key={i} className="h-3.5 w-3.5 fill-[#FBBF24] text-[#FBBF24]" />)}
+            </div>
+            <span className="text-[13px] font-semibold text-ink group-hover:text-gold transition-colors">
+              Happy with our service? Write a Google Review
+            </span>
+            <ExternalLink className="h-3.5 w-3.5 text-ink-light group-hover:text-gold transition-colors" />
+          </a>
         </ScrollReveal>
 
         {/* Cards */}
