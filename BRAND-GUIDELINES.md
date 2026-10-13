@@ -350,7 +350,7 @@ Features: Airtel · Jio · Vi · BSNL · Home KYC
 
 **6. Mobile Loans**
 Icon: `CreditCard`
-Desc: "New phone on EMI. Loan filled at home. 1-hr delivery."
+Desc: "New phone on EMI. Loan filled at home. Normal delivery."
 Features: All brands · Easy EMI · Fast approval
 
 ---

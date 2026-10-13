@@ -29,7 +29,7 @@ const laptopSubServices: SubService[] = [
 
 const pickupSubServices: SubService[] = [
   { name: "Same-Day Pickup",          desc: "Device collected from your address — usually within 1–2 hours",          icon: "🚗",  price: "Free"  },
-  { name: "Same-Day Return",          desc: "Repaired device delivered back the same day in most cases",              icon: "📦",  price: "Free"  },
+  { name: "Normal Delivery",          desc: "Repaired device sent back on normal delivery — the drop can be deferred", icon: "📦",  price: "Free"  },
   { name: "20km Zone",                desc: "Pickup & delivery within 20km across South Bengaluru",                  icon: "📍",  price: "Available"  },
   { name: "WhatsApp Tracking",        desc: "Live updates on repair status — from collection to delivery",           icon: "💬",  price: "Free"  },
   { name: "Secure Handling",          desc: "Your device is handled carefully and a receipt is provided at pickup",   icon: "🔒",  price: "Free"  },
@@ -71,7 +71,7 @@ const mobileLoansSubServices: SubService[] = [
   { name: "Home Loan Application",    desc: "Loan form filled and submitted at your home — no need to visit branch", icon: "🏠", price: "Free service" },
   { name: "Exchange Old Phone",       desc: "Get best exchange value for your old phone — added to down payment",  icon: "🔄",  price: "Best price" },
   { name: "Corporate / Bulk Orders",  desc: "Multiple phones for teams or offices — bulk pricing available",       icon: "🏢",  price: "Contact us" },
-  { name: "1-Hour Delivery",          desc: "Phone delivered within 1 hour of loan approval — straight to your door",icon: "⚡", price: "Free delivery" },
+  { name: "Normal Delivery",          desc: "After approval, the phone goes out on normal delivery. The drop can be deferred", icon: "📦", price: "Free delivery" },
 ];
 
 export const services: Service[] = [
@@ -169,12 +169,12 @@ export const services: Service[] = [
       "Can't wait at home? No problem. We pick up your device, repair it at our shop, and deliver it back within our 20km service zone.",
     icon: "Truck",
     image: "/images/services/pickup.webp",
-    features: ["Device Collection", "Home Delivery", "20km Zone", "Same-Day Return"],
+    features: ["Same-Day Pickup", "Normal Delivery", "20km Zone", "Drop Can Be Deferred"],
     subServices: pickupSubServices,
     ctaMessage: "Hi, I need pickup and delivery for repair",
     heroTagline: "Can't Wait at Home? We Collect, Fix & Return",
     fullDescription:
-      "Our pickup and delivery service is perfect when you can't step out. Simply WhatsApp us, and our technician collects your device from your address, repairs it at our shop in GK Layout, and delivers it back within our 20km service zone. Most repairs are returned the same day.",
+      "Our pickup and delivery service is perfect when you can't step out. Simply WhatsApp us, and our technician collects your device the same day from your address, repairs it at our shop in GK Layout, and sends it back on normal delivery within our 20km service zone. Delivery can be deferred if you need it later.",
     faqs: [
       {
         q: "How does the pickup and delivery work?",
@@ -182,7 +182,7 @@ export const services: Service[] = [
       },
       {
         q: "How long will my device be away?",
-        a: "Most repairs are completed and returned the same day. Complex repairs may take up to 24 hours.",
+        a: "Pickup is the same day, usually within 1–2 hours. The repaired device comes back on normal delivery, and that drop can be deferred to a time that suits you.",
       },
       {
         q: "How do I track my device?",
@@ -195,7 +195,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Device Pickup & Delivery — South Bengaluru | AS MS",
     metaDescription:
-      "Mobile and laptop pickup and delivery for repair in South Bengaluru. We collect, fix, and return your device. Same-day turnaround within 20km.",
+      "Mobile and laptop pickup and delivery for repair in South Bengaluru. Same-day pickup, then normal delivery that can be deferred, within 20km.",
   },
   {
     id: "accessories",
@@ -204,7 +204,7 @@ export const services: Service[] = [
     shortTitle: "Accessories",
     shortDesc: "Cases, chargers, earphones — delivered to your door.",
     description:
-      "All mobile phone accessories available for home delivery. Genuine chargers, premium cases, earphones, cables and more — delivered same day.",
+      "All mobile phone accessories available for home delivery. Genuine chargers, premium cases, earphones, cables and more — sent on normal delivery, which can be deferred.",
     icon: "ShoppingBag",
     image: "/images/services/accessories.webp",
     features: ["Chargers & Cables", "Cases & Covers", "Earphones", "Screen Protectors"],
@@ -213,7 +213,7 @@ export const services: Service[] = [
     badgeColor: "saffron",
     heroTagline: "All Mobile Accessories Delivered to Your Home",
     fullDescription:
-      "From a fast charger to a premium phone case, we deliver all mobile accessories right to your address in South Bengaluru. We stock genuine and compatible chargers, Type-C and Lightning cables, Bluetooth earphones, wired headphones, phone cases for all models, screen protectors, power banks, and more. Same-day delivery available — just WhatsApp us your model and what you need.",
+      "From a fast charger to a premium phone case, we deliver all mobile accessories right to your address in South Bengaluru. We stock genuine and compatible chargers, Type-C and Lightning cables, Bluetooth earphones, wired headphones, phone cases for all models, screen protectors, power banks, and more. Orders go out on normal delivery, and delivery can be deferred — just WhatsApp us your model and what you need.",
     faqs: [
       {
         q: "Do you stock accessories for all phone models?",
@@ -224,8 +224,8 @@ export const services: Service[] = [
         a: "We stock both OEM (original) and high-quality compatible accessories. We clearly tell you which is which before you buy.",
       },
       {
-        q: "Can I get same-day delivery?",
-        a: "Yes, same-day delivery is available for most accessories within our 20km service zone.",
+        q: "How does accessory delivery work?",
+        a: "Accessories are sent on normal delivery within our 20km service zone. Delivery can be deferred if you want a later time.",
       },
       {
         q: "What if the accessory doesn't fit my phone?",
@@ -234,7 +234,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Mobile Accessories Home Delivery — South Bengaluru | AS MS",
     metaDescription:
-      "Order mobile accessories with same-day home delivery in South Bengaluru. Chargers, cables, earphones, cases, screen protectors. WhatsApp to order.",
+      "Order mobile accessories with normal home delivery in South Bengaluru. Delivery can be deferred. Chargers, cables, earphones, cases, screen protectors. WhatsApp to order.",
   },
   {
     id: "tempered-glass",
@@ -319,19 +319,19 @@ export const services: Service[] = [
     slug: "mobile-loans",
     title: "Mobile Phone on Loan — At Home",
     shortTitle: "Mobile Loans",
-    shortDesc: "New phone on EMI. Loan filled at home. Delivered in 1 hr.",
+    shortDesc: "New phone on EMI. Loan filled at home. Normal delivery.",
     description:
-      "Get a brand-new mobile phone on easy EMI. We fill your loan application at your home and deliver the phone within 1 hour of approval. All brands available.",
+      "Get a brand-new mobile phone on easy EMI. We fill your loan application at your home, and the phone goes out on normal delivery. Delivery can be deferred. All brands available.",
     icon: "CreditCard",
     image: "/images/services/mobile-loans.webp",
-    features: ["All Brands", "Easy EMI", "Loan at Home", "1-Hour Delivery"],
+    features: ["All Brands", "Easy EMI", "Loan at Home", "Normal Delivery"],
     subServices: mobileLoansSubServices,
     ctaMessage: "Hi, I want a mobile phone on EMI",
-    badge: "1-Hr Delivery",
+    badge: "Normal Delivery",
     badgeColor: "saffron",
-    heroTagline: "New Phone on EMI — Loan at Home, Delivered in 1 Hour",
+    heroTagline: "New Phone on EMI — Loan at Home, Normal Delivery",
     fullDescription:
-      "Want a new phone but prefer to pay in instalments? We make it easy. Our representative comes to your home, helps you fill the EMI loan application, and once approved, your brand-new phone is delivered within 1 hour. All major brands available — Samsung, iPhone, OnePlus, Vivo, Oppo, Realme, Redmi and more. Low down payment, flexible EMI tenures.",
+      "Want a new phone but prefer to pay in instalments? We make it easy. Our representative comes to your home, helps you fill the EMI loan application, and once approved, your brand-new phone is sent on normal delivery. Delivery can be deferred. All major brands available — Samsung, iPhone, OnePlus, Vivo, Oppo, Realme, Redmi and more. Low down payment, flexible EMI tenures.",
     faqs: [
       {
         q: "Which phone brands are available on EMI?",
@@ -347,7 +347,7 @@ export const services: Service[] = [
       },
       {
         q: "How quickly is the phone delivered?",
-        a: "Once your loan is approved, we deliver the phone within 1 hour to your address.",
+        a: "Once your loan is approved, the phone is sent on normal delivery. Delivery can be deferred if you need it later.",
       },
       {
         q: "Is there any processing fee?",
@@ -356,6 +356,6 @@ export const services: Service[] = [
     ],
     metaTitle: "Mobile Phone on EMI Loan at Home — South Bengaluru | AS MS",
     metaDescription:
-      "Get a brand-new phone on EMI with loan application at your home in South Bengaluru. All brands, easy EMI, delivered within 1 hour of approval.",
+      "Get a brand-new phone on EMI with loan application at your home in South Bengaluru. All brands, easy EMI, then normal delivery that can be deferred.",
   },
 ];

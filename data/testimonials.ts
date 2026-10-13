@@ -42,7 +42,7 @@ export const testimonials: Testimonial[] = [
     name: "Vikram T.",
     area: "Chandapura",
     rating: 5,
-    text: "Got a new Redmi on EMI, loan filled right here at home. Phone delivered within 1 hour. Never thought it could be this easy!",
+    text: "Got a new Redmi on EMI, loan filled right here at home. The phone came on normal delivery. Never thought it could be this easy!",
     service: "Mobile Loan",
     initials: "VT",
   },

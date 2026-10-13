@@ -48,7 +48,7 @@ const carouselSlides: Slide[] = [
     alt: "Mobile accessories home delivery",
     tagline: "Accessories & More — Delivered to Your Home",
     bg: "from-gold/20 via-gold/5 to-white",
-    badge: { icon: Package, iconCls: "text-gold",        title: "Same-Day Delivery",       sub: "Cases · Chargers · Earphones"     },
+    badge: { icon: Package, iconCls: "text-gold",        title: "Normal Delivery",        sub: "Cases · Chargers · Earphones"     },
     badgePos: "bottom-[7rem] right-4",
     imgPadding: "p-12 sm:p-16 lg:p-20",
   },

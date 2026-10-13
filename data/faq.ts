@@ -39,7 +39,7 @@ export const faqs: FAQ[] = [
   {
     question: "Can I get a mobile phone on EMI at home?",
     answer:
-      "Yes. We fill your loan or finance application at your home. All major brands are available. Once approved, the phone is delivered within 1 hour.",
+      "Yes. We fill your loan or finance application at your home. All major brands are available. Once approved, the phone is sent on normal delivery, and delivery can be deferred.",
   },
   {
     question: "Is there a warranty on repairs?",

@@ -67,7 +67,7 @@ const values = [
     color: "text-gold",
     bg: "bg-gold/10",
     title: "₹15/km Pickup & Drop",
-    desc: "Can't wait at home? We pick up your device, repair it at our GK Layout shop, and deliver it back — charged at ₹15 per km.",
+    desc: "Can't wait at home? Pickup is the same day. We repair it at our GK Layout shop and send it back on normal delivery — the drop can be deferred. Charged at ₹15 per km.",
   },
   {
     icon: Award,

@@ -21,8 +21,10 @@
 - Software Issue Fixes
 - Fast & Reliable Service
 
-### 2. Free Pickup & Delivery
-- We collect your device and return it after repair
+### 2. Pickup & Delivery
+- Pickup is the same day
+- The repaired device comes back on normal delivery
+- Delivery can be deferred
 - Doorstep service — no need to travel
 
 ### 3. Mobile Phone Accessories (Home Delivery Available)
@@ -46,7 +48,7 @@
 ### 6. Easy Mobile Phone Loans & Finance
 - Mobile phones available on loan / EMI
 - Loan application filled at your home
-- Fast delivery within 1 hour of approval
+- Normal delivery after approval — delivery can be deferred
 
 ---
 

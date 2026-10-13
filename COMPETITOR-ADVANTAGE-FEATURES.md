@@ -401,7 +401,7 @@ Specific to South Bengaluru audience:
 | Mention Kannada-speaking technician (optional) | Trust builder for local customers |
 | "No advance. No card. No sign-up" | Directly addresses India's skepticism of online payments |
 | Before/After repair photos | Proof of work — more convincing than testimonials alone |
-| "1-hour delivery after loan approval" | Hyper-specific, memorable, unique claim |
+| "Normal delivery after loan approval — the drop can be deferred" | Clear expectation: pickup is same day, delivery is not rushed |
 | "Free glass fitting with screen replacement" | Gadzetspro used this — works as a conversion hook |
 | "Serving GK Layout, E City, Hosa Road and all of South Bengaluru" | Area-specific trust |
 | Business hours: 9 AM – 9 PM, 7 days | Long hours = more bookings |
